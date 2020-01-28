@@ -2,39 +2,14 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Database\Eloquent\Model;
 
-class PetugasModel extends Authenticatable implements JWTSubject
+class PetugasModel extends Model
 {
-    use Notifiable;
-    protected $table = 'petugas';
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table = "petugas";
+    protected $primaryKey = "id";
+    public $timestamps = false;
     protected $fillable = [
-        'nama_petugas','alamat', 'telp', 'username', 'password',
+        'id', 'nama_petugas', 'alamat', 'telp', 'username', 'password'
     ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    public function getJWTIdentifier()
-    {
-        return $this->getKey();
-    }
-    public function getJWTCustomClaims()
-    {
-        return [];
-    }
 }

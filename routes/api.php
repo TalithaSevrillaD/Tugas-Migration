@@ -22,3 +22,18 @@ Route::post('login', 'PetugasController@login');
 Route::get('/', function(){
     return Auth::user()->level;
 })->middleware('jwt.verify');
+
+Route::post('buku', 'Bukucontroller@store')->middleware('jwt.verify');
+Route::put('buku/{id}', 'Bukucontroller@update')->middleware('jwt.verify');
+Route::delete('buku/{id}', 'Bukucontroller@destroy')->middleware('jwt.verify');
+Route::get('buku', 'Bukucontroller@show')->middleware('jwt.verify');
+
+Route::post('peminjaman', 'peminjamcontroller@store')->middleware('jwt.verify');
+Route::put('peminjaman/{id}', 'peminjamcontroller@update')->middleware('jwt.verify');
+Route::delete('peminjaman/{id}', 'peminjamcontroller@destroy')->middleware('jwt.verify');
+Route::get('peminjaman', 'peminjamcontroller@show')->middleware('jwt.verify');
+ 
+Route::post('anggota', 'Anggotacontroller@store')->middleware('jwt.verify');
+Route::put('anggota/{id}', 'Anggotacontroller@update')->middleware('jwt.verify');
+Route::delete('anggota/{id}', 'Anggotacontroller@destroy')->middleware('jwt.verify');
+Route::get('anggota', 'Anggotacontroller@show')->middleware('jwt.verify');
