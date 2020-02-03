@@ -37,3 +37,8 @@ Route::post('anggota', 'Anggotacontroller@store')->middleware('jwt.verify');
 Route::put('anggota/{id}', 'Anggotacontroller@update')->middleware('jwt.verify');
 Route::delete('anggota/{id}', 'Anggotacontroller@destroy')->middleware('jwt.verify');
 Route::get('anggota', 'Anggotacontroller@show')->middleware('jwt.verify');
+
+Route::post('detail', 'peminjamcontroller@storeDetail')->middleware('jwt.verify');
+Route::put('detail/{id}', 'peminjamcontroller@updateDetail')->middleware('jwt.verify');
+Route::delete('detail/{id}', 'peminjamcontroller@destroyDetail')->middleware('jwt.verify');
+Route::get('transaksi/{id}', 'peminjamcontroller@transaksi')->middleware('jwt.verify');
